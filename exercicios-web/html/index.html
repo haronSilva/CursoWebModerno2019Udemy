@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercícios HTML</title>
+</head>
+<body>
+    <header>
+       <h1> Exercícios HTML</h1>
+       <style>
+           #conteudo {
+               padding: 30px 0px
+           }
+       </style>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html">00 - Teste</a> |
+        <a href="exercicios/texto1.html">01 - Texto 1</a> |
+        <a href="exercicios/texto2.html">02 - Texto 2</a> |
+        <a href="exercicios/listas.html">03 - Listas</a> |
+        <a href="exercicios/listaAninhada.html">04 - Lista Aninhada</a>
+    </nav>
+
+    <section id="conteudo"></section>
+    <footer>
+        Curso de Web Moderno
+    </footer>
+
+    <script>
+        //Selecione todas as tags link - Ele me retorna um array, dessa forma já uso os método do obj Array
+        document.querySelectorAll('a').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+            link.onclick = function (e){
+                //A instrução abaixo força que ela seja a principal a ser executada
+                e.preventDefault()                
+                /**
+                    CHAMADA AJAX - forma mais atual que seleciona o conteudo da página que será carregada no section
+                    Ela é baseada em promise
+                */
+                fetch(link.href)
+                .then(response => response.text()/*Método que pega o html de uma página*/)
+                .then(html => conteudo.innerHTML = html)/*Usando then aninhado para acrescentar o html no conteudo*/
+            }
+        })
+    </script>
+</body>
+</html>
