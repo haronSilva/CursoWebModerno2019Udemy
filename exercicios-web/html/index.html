@@ -16,11 +16,13 @@
        </style>
     </header>
     <nav>
-        <a href="exercicios/teste.html">00 - Teste</a> |
-        <a href="exercicios/texto1.html">01 - Texto 1</a> |
-        <a href="exercicios/texto2.html">02 - Texto 2</a> |
-        <a href="exercicios/listas.html">03 - Listas</a> |
-        <a href="exercicios/listaAninhada.html">04 - Lista Aninhada</a>
+        <a wm-nav="exercicios/teste.html" href >00 - Teste</a> |
+        <a wm-nav="exercicios/texto1.html" href>01 - Texto 1</a> |
+        <a wm-nav="exercicios/texto2.html" href>02 - Texto 2</a> |
+        <a wm-nav="exercicios/listas.html" href>03 - Listas</a> |
+        <a wm-nav="exercicios/listaAninhada.html" href>04 - Lista Aninhada</a> |
+        <a wm-nav="exercicios/links.html" href>05 - Links</a> |
+        <a wm-nav="exercicios/tabela.html" href>06 - Tabela</a>
     </nav>
 
     <section id="conteudo"></section>
@@ -30,7 +32,7 @@
 
     <script>
         //Selecione todas as tags link - Ele me retorna um array, dessa forma já uso os método do obj Array
-        document.querySelectorAll('a').forEach(link => {
+        document.querySelectorAll('[wm-nav]').forEach(link => {
             const conteudo = document.getElementById('conteudo')
             link.onclick = function (e){
                 //A instrução abaixo força que ela seja a principal a ser executada
@@ -39,7 +41,7 @@
                     CHAMADA AJAX - forma mais atual que seleciona o conteudo da página que será carregada no section
                     Ela é baseada em promise
                 */
-                fetch(link.href)
+                fetch(link.getAttribute('wm-nav'))
                 .then(response => response.text()/*Método que pega o html de uma página*/)
                 .then(html => conteudo.innerHTML = html)/*Usando then aninhado para acrescentar o html no conteudo*/
             }
