@@ -10,7 +10,15 @@ api.post('/usuarios',(request, response, next)=>{
     const nome = request.body.nome
     console.log(request.body)
     console.log('Parabéns')
-    response.send('Parabéns')
+    response.send('Parabéns usuário Incluído')
+})
+
+api.post('/usuarios/:id',(request, response, next)=>{
+    const id = request.params.id
+    console.log(id)
+    console.log('Parabéns')
+    console.log(request.body)
+    response.send('Parabéns usuário Alterado')
 })
 
 api.listen(port, () =>{
