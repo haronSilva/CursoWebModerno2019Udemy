@@ -30,9 +30,11 @@
     }
 </style>
 <script>
+    debugger
     const buttonPlay = document.querySelector('[wm-play]')
     const buttonPause = document.querySelector('[wm-pause]')
     const meuVideo = document.querySelector('#meuVideo')
+    const barraProgresso = document.querySelector('[wm-progresso] > div')
     buttonPlay.onclick = function (){        
         meuVideo.play()
     }
@@ -40,5 +42,43 @@
     buttonPause.onclick = function(){
         meuVideo.pause()
     }
+    
+    function configurarProgresso(){
+        debugger
+        var id = setInterval(() =>{
+            let progressoAtual = Math.round(meuVideo.currentTime)
+            let duracaoTotal = Math.round(meuVideo.duration)
+            let percentual = Math.round((progressoAtual / duracaoTotal) * 100)
+            if(progressoAtual >= duracaoTotal){
+                barraProgresso.style.width = `100%`
+                clearInterval(id)
+                return
+            }                        
+            barraProgresso.style.width = `${percentual}%`
+        }, 1000)
+    }
+    configurarProgresso()
+   /*
+    Solução do instrutor
 
+    function configurarVideo(id){
+        const video = document.getElementById(id)
+        //Retirar o menu do contexto do vídeo
+        video.oncontextmenu = () => false
+
+        //eventos dos botões
+        document.querySelector(`[wm-play=${id}]`).onclick = e => video.play()
+        document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause()
+
+        setInterval(()=>{
+            const percentual = (video.currentTime / video.duration) * 100
+            cont valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+            valorDiv.style.width = `${percentual}%`
+            valorDiv.innerHtml = `${percentual.toFixed(1)}%`
+        },500)
+    }
+
+    configurarVideo('meuVideo')
+   */
+    
 </script>
