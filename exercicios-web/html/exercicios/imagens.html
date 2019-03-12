@@ -84,7 +84,7 @@
             if(indice == tamanho){
                 return
             }
-            var id = setInterval(callBack(elementosP, posicao, indice, tamanho), 50)
+            var id = setInterval(() => interval() , 50)
         
             function interval(){
                 if(posicao === 1500){
@@ -100,13 +100,7 @@
                     elementosP[indice].style.left = posicao
                 }
             }
-            
-            
-            
-            function callBack(elementosP, posicao, indice, tamanho){
-                return interval
-                
-            }
+
         }
         
         /*function callbackInterval(){
