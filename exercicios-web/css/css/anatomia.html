@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        /*
+          Como definir css - Css é case sensitive
+
+          O padrão usado na definição das propriedades do CSS é o dashcase (Uso do - para separar as palavras)
+        */
+        .seletor {
+            /*valores hexadecimal*/
+            color: #fff;
+            /*valores inteiros em conjunto como uma unidade*/
+            font-size: 30px;
+            /*valores pre-definidos*/
+            text-align: center;
+            /*propriedades de multiplos valores (shorthand property)*/
+            border: solid 5px navy;
+            /*Configuração de propriedades com alternativas*/
+            font-family: helvetica, monospace; 
+            /*funções pre-definidas*/
+            width: calc(100% - 40px);
+            background-color: rgb(34,153,189);
+            
+        }
+
+        /*Usando uma pseudo-classe
+            -O método hover executa quando o mouse fica em cima do componente
+        */
+        .seletor:hover{
+           background-color: orangered;         
+        }
+
+        /*
+            Usando pseudo-elementos
+            - No exemplo abaixo será selecionado o primeiro elemento 'letra' dentro do componente
+        */
+
+        .seletor::first-letter {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="seletor">Conteúdo</div>
+</body>
+
+</html>
