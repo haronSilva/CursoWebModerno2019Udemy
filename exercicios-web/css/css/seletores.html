@@ -6,7 +6,143 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /*
+            Usando seletor universal
+
+            * {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /*
+         Seletor de classe
+         .tag {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+        /*
+         Seletor usando id
+         #aprovados {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+        /*
+            Seletor para aplicar somente no filho direto, focando em um só componente:
+            dentro de aninhado, aplique o css na div
+            #aninhado > div {
+            color: #ff0;
+            background-color: #f77;
+        }
+            Não consegue aplica, pois não o filho diretamente abaixo
+             #aninhado > section {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /*
+            Seletor para qualquer descedente dentro de um aninhado
+            #aninhado  section {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+        /*
+        Irmãos adjacentes DIRETOS - um após o outro - o estilo será aplicado
+        a cada componente cujo o anterior está antes do +
+            p + ul {
+            color: #ff0;
+            background-color: #f77;
+        }
+        No exemplo abaixo, não da certo pois não estão diretamente em sequencia
+            p + ol {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+        /*
+            Seletor para acessar o componente cujo é irmão, mas não estão diretamentes em sequencia
+
+            p ~ ol {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+        /*
+            Pegando todos os elementos cuja a propriedade seja [feira]
+             [feira] {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /*
+            Seletor por atributo informando o valor
+            [feira=casa] {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /*
+            Seletor por atributo informando um valor que possivelmente esteja
+            dentro de uma frase SEPARADAS POR ESPAÇO como valor de atributo
+            [feira~=empresa] {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /*
+            Seletor por atributo informando um valor que será pesquisado no valor do atributo
+            [feira*=sa] {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+
+        /*
+            Seletor para o primeiro elemento filho do tipo de um componente
+            span:nth-child(1) {
+            color: #ff0;
+            background-color: #f77;
+        }
+        */        
+        /*
+            Dentro de uma section aplica o css em todas as filha impares
+            section > :nth-child(odd) {
+            color: #ff0;
+            background-color: #f77;
+        }
+            Para os pares é só trocar para even
+        */
+
+        /*
+            Aplicando css em elementos agrupados por ','
+
+            section > :nth-child(odd) , ul {
+            color: #ff0;
+            background-color: #f77;
+        }
+
+
+        */
+
+        /*
+            Seletor do segundo elemento dentro de uma section do tipo span
+            section > span:nth-of-type(2){
+            color: #ff0;
+            background-color: #f77;
+        }
+        */
+        section > span:nth-of-type(2){
+            color: #ff0;
+            background-color: #f77;
+        }
+        
     </style>
 </head>
 
@@ -29,7 +165,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
