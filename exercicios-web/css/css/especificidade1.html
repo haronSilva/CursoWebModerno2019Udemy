@@ -6,6 +6,38 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+
+        /*
+            Como é executada a especificidade no CSS - A execução das regras implementas
+
+            1. Regra com !important - Ele ultrapassa toda e qualquer regra! (Não é aconselhado)
+                O important só burla regra para componentes do mesmo tipo
+            2. seletores específicos (css inline)
+            3. ultima regra processa tem prioridade da anterior (andamento normal )
+        */
+
+        p {
+            background-color : gray
+        }
+
+        /*Uma classe é um seletor mais específico que um elemento - então terá prioridade do que uma tag!
+          Não importa se vier antes ou depois
+        */
+        .observacao {
+            background-color: #555;
+            border: dashed 5px;
+            padding: 200px!important;
+            font-size: 40px;
+        }
+
+        /*
+            O seletor é mais específico ainda, então a prioridade será o dele
+        */
+        p.observacao {
+            padding: 2px;
+            background: linear-gradient(to right, red, yellow);
+        }
+
     </style>
 </head>
 
