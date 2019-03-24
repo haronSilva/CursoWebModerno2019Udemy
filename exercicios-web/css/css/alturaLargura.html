@@ -17,6 +17,15 @@
         span {
             background-color: dodgerblue;
         }
+        /*
+         Por padrão o body ele pega a largura toda da tela, mas a altura não. A não ser que, você configure
+         a tag html com a altura 100%. Quando usa porcentagem, ele vem levar em consideração o componente pai!
+        */
+        span, div {
+            width: 50%;
+            height: 50%;
+            height: 250px;
+        }
     </style>
 </head>
 

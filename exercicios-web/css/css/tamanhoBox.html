@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <title>Tamanho Box</title>
     <style>
+
+        * {
+            /* - border-box - ele faz o calculo desde do border até o conteudo
+               - content-box - ele faz o cálculo somente do conteúdo e desconsidera padding e border*/
+            box-sizing: border-box;
+
+        }
         body {
             font-size: 45px;
+        }
+
+        div {
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            border: 20px solid;
         }
     </style>
 </head>
