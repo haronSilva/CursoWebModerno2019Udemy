@@ -12,6 +12,22 @@
             border: solid 5px;
             display: none;
         }
+
+        /*Eita começamos responsividade com media query IRADO
+        PRIMEIRO VOCÊ DECLARA A MEDIA E DENTRO DELA VOCÊ COLOCA AS CLASSES
+        */
+        /*Quando a largura máxima for 600px faça:*/
+        @media (max-width: 600px){
+            .muito-pequeno {display:block;}
+        }
+        /*Quando a largura máxima for 1000px OU com a orientação retrato, faça:*/
+        @media (max-width: 1000px) , (orientation: portrait){
+            .pequeno-retrato{display: block;}
+        }
+        /*Quando a largura mínima for >= 500px E <= 1000, faça:*/
+        @media (min-width: 500px) and (max-width: 1000px) {
+            .intervalo {display:block;}
+        }
     </style>
 </head>
 <body>

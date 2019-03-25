@@ -5,7 +5,73 @@
     <meta charset="UTF-8">
     <title>Position</title>
     <style>
-        /* ... */
+        /* Position sempre vem acompanhado com os pixel de posicionamento do componente */
+        div {
+            font-size: 60px;
+            padding: 30px;
+            border: solid 5px #222;
+        }
+        /*Por causa do position default (static) o top e left não influenciam no componente*/
+        .static {
+            top: 100px;
+            left: 100px;
+            background-color: steelblue;
+        }
+        /*
+            Com position fixed o componente sempre ficará em uma posição fixa
+            acompanhando a barra de rolagem.
+        */
+        .fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 0px;
+            background-color: tomato;
+        }
+        /*
+            O relative sempre levará em consideração o componente anterior
+            para que seja aplicado a posição do componente em questão
+        */
+        .relative1 {
+            position: relative;
+            left: 50px;
+            top: 5px;
+        }
+        /*
+            O absolute ele não leva em consideração os componentes vizinhos, mas sim a tela!
+            Isso pode mudar quando ele esteja aninhado
+        */
+        .absolute1 {
+            position: absolute;
+            left: 350px;
+            top: 120px;
+            background-color: violet;
+        }
+
+        .relative2{
+            position: relative;
+            left:250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: slategrey;
+        }
+        /*Nesse caso ele se torna absoluto em relação ao pai!*/
+        .absolute2{
+            position:absolute;
+            left:10px;
+            top:10px;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+        }
+        /*Nesse caso quando o componente atingir a configuração 
+        top 10px o mesmo ficará fixo e ficará visível mesmo que eu role o scroll*/
+        .sticky{
+            position: -webkit-sticky; /*para o safari entender*/
+            position: sticky;
+            background-color: #777;
+            top:10px;
+        }
     </style>
 </head>
 
