@@ -7,8 +7,10 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+        /*Minha versão do desafio*/
         body {
             margin: 0;
+            font-family: 'Oswald', serif;
         }
 
         header {
@@ -20,7 +22,7 @@
         }
         .logo {
             display: inline-block;
-            margin-right: 260px;
+            margin-right: 50px;
         }
         .logo, .logo a, .logo img {
             width: 250px;
@@ -34,23 +36,175 @@
             
         }
         nav, aside {
-            display: inline;
+            display: none;
         } 
 
         aside {
             padding-top: 15px;
-            margin-left: 320px;
+            margin-left: 30em;
         }
         ul, li {
             display: inline-block;
         }
+
+         a {         
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        aside > a:hover{
+            text-decoration: underline;
+        }
+        li a:hover, li a:active {
+            background-color: #81a4cd;
+            color: black;
+        }
         
+        .active {
+            background-color: #81a4cd;
+            color: black;
+        }
+        .botao:hover{
+            text-decoration: none;
+        }
+
+
+        .destaque {
+            background-color: red;
+            border-radius: 15px;
+        }
+
         li a, aside a{
             padding-right: 15px; 
             text-decoration: none;
         }
         
-        
+        @media (min-width: 600px) {
+            nav {
+                display: inline;
+            }
+
+        }
+
+        @media (min-width: 1270px) and (max-width:1500px) {
+            aside {
+                display: inline;
+            }
+
+        }
+
+        @media (max-width:600px){
+            button {
+                position: absolute;
+                right: 5%;
+                display: block;
+            }
+        }
+        /*Minha versão do desafio*/
+
+        /*versão da UDEMY*/
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin:0;
+            font-family: 'Oswald', sans-serif;
+            background-color: lightgray;
+        }
+
+        .cabecalho {
+            background: #333;
+            border-bottom: solid 5px #4faddb;
+            height: 80px;
+            box-sizing: content-box;
+        }
+
+        .logo {
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+        .logo img {
+            height: 100%;
+        }
+
+        .menu-toggle{
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            border-radius:5px;
+            height:40px;
+            padding: 10px 20px;
+            margin: 20px 15px;
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul{
+            margin:0;
+            padding:0;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .cabecalho a {
+            text-decoration: none;
+            color: #eee;
+            font-size: 1.3em;
+
+        }
+        .menu a {
+            padding: 15px;
+        }
+        .autenticacao {
+            float:right;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu a:hover,
+        .menu a.selected {
+            background-color: #4faddb;
+            color:black;
+        }
+
+        .botao{
+            border-radius: 30px;
+            padding:10px 25px;
+            margin:10px;
+        }
+
+        .destaque{
+            background:#f50a31;
+            color:#fff;
+        }
+
+        @media(min-width: 679px){
+            .menu-toggle{
+                display:none;
+            }
+        }
+
+        @media(max-width: 680px){
+            .menu{
+                display: none;
+            }
+        }
+
+        @media(max-width:910px){
+            .autenticacao {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -87,7 +241,33 @@
     </header>
 
     <script>
-        // ...
+        //Versão Haron
+       const arrayLinks = document.querySelectorAll('a');
+       arrayLinks.forEach(link => {
+           link.onclick = function (e){
+               debugger
+               const urlLink = document.URL
+               if(urlLink.indexOf('#') > -1){
+                const hrefSelecionado = urlLink.substring(urlLink.indexOf('#'), urlLink.length)
+                const linkAnterior = document.querySelector(`li a[href="${hrefSelecionado}"]`)
+                linkAnterior.classList.remove('active')                                
+               } 
+               const hrefLinkAtual = this.href.substring(this.href.indexOf('#'), this.href.length)
+               const linkAtual = document.querySelector(`li a[href="${hrefLinkAtual}"]`)
+               linkAtual.classList.add('active');
+               
+           }
+       })
+
+       //Versão udemy
+       window.onhashchange - function(e){
+           const oldURL = e.oldURL.split('#')[1]
+           const newURL = e.newURL.split('#')[1]
+           const oldMenu = document.querySelector(`.menu a[href='#${oldUrl}']`)
+           const newMenu = document.querySelector(`.menu a[href='#${newUrl}']`)
+           oldMenu && oldMenu.classList.remove('selected')
+           newMenu && newMenu.classList.remove('selected')
+       }
     </script>
 </body>
 
