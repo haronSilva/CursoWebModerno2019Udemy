@@ -6,7 +6,105 @@
     <title>Flexbox #01</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .big {
+            font-size: 1.5em;
+        }
+        .flex-container{
+            /*
+                Habilitando o Flex-box
+                por padrão o main axis (eixo padrão) é o de linha e cross axis é de coluna
+            */
+            display: flex;
+            /*
+                Trocando o padrão para colocar como main axis como coluna e o cross axis com linha
+            */
+            flex-direction: column;
+            /*
+                Continua como main axis como coluna, mas invertendo a posição dos flex items
+            */
+            flex-direction: column-reverse;
+
+            /*
+                O mesmo funciona para linha
+            */
+            flex-direction: row-reverse;
+
+            flex-direction: row;
+            /*
+                Nesse caso vai acontecer um overflow porque estou diminuindo o tamanho do container
+                para ajustar isso será preciso usar a propriedade flex-wrap:wrap para quebra a linha 
+                dentro do container e os itens que estavam fora possam entrar novamente respeitando o 
+                tamanho do container.
+            */
+            width: 50%;
+
+            flex-wrap: wrap;
+            /*
+                Ele inverte a quebra de linha
+            */
+            flex-wrap: wrap-reverse;
+
+            /*
+                Propriedade que mixa a definição do main axis com a quebra de linha
+            */
+            flex-flow: row wrap;
+            height: 200px;
+            /*
+             Revertendo a coluna e quebrando em várias
+            */
+            flex-flow: column-reverse wrap;
+            flex-flow: row wrap;
+            /*
+                Justificando um conteúdo no início com flex-box
+            */
+            justify-content: flex-start;
+
+            /*
+                Justificando um conteúdo no fim com flex-box
+            */
+            justify-content: flex-end;
+
+            /*
+                Justificando um conteúdo no centro com flex-box
+            */
+            justify-content: center;
+
+            /*
+                Justificando incluindo vários espaços ao redor de cada item.
+            */
+            justify-content: space-around;
+
+            /*
+                Justificando e incluindo espaços somente entre os componentes.
+            */
+            justify-content: space-between;
+            
+            /*
+                Definindo ações no cross axis (eixo vertical)
+            */
+            height: 400px;
+            align-items: stretch;/*padrão*/
+            /* Faz o alinhamento tomando com base a linha de cada elemento*/
+            align-items: baseline;
+            /*Alinhando no topo dos elementos*/
+            align-items:flex-start;
+
+            /*Alinhando no fim dos elementos*/
+            align-items:flex-end;
+
+            /*Alinhando no centro dos elementos*/
+            align-items:center;
+            
+            /*Quando existir várias linhas*/
+            /*Todas o conteudo das linhas no top*/
+            align-content: flex-start;
+            /*Todas o conteudo das linhas no final*/
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-around;
+
+
+        }
     </style>
 </head>
 
